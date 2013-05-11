@@ -10,7 +10,7 @@ _unison=/usr/bin/unison
  
 # server names 
 # sync server1.cyberciti.com with rest of the server in cluster
-_rserver="10.1.1.30 10.1.1.37 10.1.1.39"
+_rserver="10.1.1.30 10.1.1.39"
  
 # sync it
 for r in ${_rserver}
