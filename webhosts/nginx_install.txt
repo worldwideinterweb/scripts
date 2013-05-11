@@ -1,0 +1,18 @@
+yum install wget unzip net-snmp net-snmp-utils git git-gui vim
+yum install xorg-x11-xauth libcanberra-gtk2 PackageKit-gtk-module dejavu-lgc-sans-fonts
+cd /usr/local/src
+wget http://vbtechsupport.com/centminmenu/centmin-v1.2.2-eva2000.22.zip
+unzip centmin-v1.2.2-eva2000.22.zip
+cd centmin-v1.2.2mod
+chmod +x centmin.sh
+./centmin.sh 
+vi /etc/sysconfig/iptables
+vi /etc/snmp/snmpd.conf 
+vi ~/.bashrc 
+touch .vimrc
+vi .vimrc 
+service iptables restart
+service iptables save
+service snmpd restart
+chkconfig snmpd on
+reboot
