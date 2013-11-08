@@ -39,7 +39,7 @@ DNLD=8mbps          # DOWNLOAD Limit
 
 # Upload limit (in mega bits)
 #UPLD=6mbps          # UPLOAD Limit
-UPLD=9mbit          # DOWNLOAD Limit
+UPLD=12mbit          # DOWNLOAD Limit
 
 # IP address of the machine we are controlling
 IP=10.1.1.34     # Host IP
