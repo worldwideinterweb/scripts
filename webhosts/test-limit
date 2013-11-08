@@ -35,11 +35,12 @@ TC=/sbin/tc
 IF=eth0             # Interface
 
 # Download limit (in mega bits)
-DNLD=8mbps          # DOWNLOAD Limit
+#DNLD=8mbps          # DOWNLOAD Limit
+DNLD=20mbit          # DOWNLOAD Limit
 
 # Upload limit (in mega bits)
 #UPLD=6mbps          # UPLOAD Limit
-UPLD=12mbit          # DOWNLOAD Limit
+UPLD=11mbit          # DOWNLOAD Limit
 
 # IP address of the machine we are controlling
 IP=10.1.1.34     # Host IP
@@ -55,15 +56,15 @@ start() {
 
 # clear it
 # shape it
-$TC qdisc add dev $IF root handle 1: htb default 1
-$TC class add dev $IF parent 1: classid 1:1 htb rate $UPLD quantum 3000 burst 15k
-$TC qdisc add dev $IF parent 1:1 handle 10: sfq perturb 10
+#$TC qdisc add dev $IF root handle 1: htb default 1
+#$TC class add dev $IF parent 1: classid 1:1 htb rate $UPLD quantum 3000 burst 15k
+#$TC qdisc add dev $IF parent 1:1 handle 10: sfq perturb 10
 
-#$TC qdisc add dev $IF root handle 1: htb default 30
-#$TC class add dev $IF parent 1: classid 1:1 htb rate $DNLD
-#$TC class add dev $IF parent 1: classid 1:2 htb rate $UPLD
-#$U32 match ip dst $IP/32 flowid 1:1
-#$U32 match ip src $IP/32 flowid 1:2
+$TC qdisc add dev $IF root handle 1: htb default 30
+$TC class add dev $IF parent 1: classid 1:1 htb rate $DNLD
+$TC class add dev $IF parent 1: classid 1:2 htb rate $UPLD
+$U32 match ip dst $IP/32 flowid 1:1
+$U32 match ip src $IP/32 flowid 1:2
 
 # The first line creates the root qdisc, and the next two lines
 # create two child qdisc that are to be used to shape download
