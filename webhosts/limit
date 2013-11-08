@@ -32,13 +32,13 @@
 TC=/sbin/tc
 
 # The network interface we're planning on limiting bandwidth.
-IF=lo:34             # Interface
+IF=eth0             # Interface
 
 # Download limit (in mega bits)
 DNLD=8mbps          # DOWNLOAD Limit
 
 # Upload limit (in mega bits)
-UPLD=1mbps          # UPLOAD Limit
+UPLD=6mbps          # UPLOAD Limit
 
 # IP address of the machine we are controlling
 IP=10.1.1.34     # Host IP
